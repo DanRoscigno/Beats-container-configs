@@ -1,3 +1,9 @@
+docker run \
+--net course_stack \
+docker.elastic.co/beats/filebeat:6.5.1 \
+setup -E setup.kibana.host=kibana:5601 \
+-E output.elasticsearch.hosts=["elasticsearch:9200"]
+
 docker run -d \
 --net course_stack \
 --name=filebeat \
