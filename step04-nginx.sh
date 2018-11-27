@@ -35,24 +35,13 @@ docker run \
   --label co.elastic.metrics/module=apache \
   --label co.elastic.metrics/metricsets=status \
   --label co.elastic.metrics/hosts='${data.host}:${data.port}' \
-  -v /root/course/apache2.conf:/etc/apache2/apache2.conf:ro \
-  -v /root/course/apache-mod-status.conf:/etc/apache2/mods-available/status.conf:ro \
-  -v /root/course/remoteip.load:/etc/apache2/mods-enabled/remoteip.load:ro \
+  -v $(pwd)/configs/apache2.conf:/etc/apache2/apache2.conf:ro \
+  -v $(pwd)/configs/apache-mod-status.conf:/etc/apache2/mods-available/status.conf:ro \
+  -v $(pwd)/configs/remoteip.load:/etc/apache2/mods-enabled/remoteip.load:ro \
   --env="GET_HOSTS_FROM=dns" \
   --network=course_stack \
   --label com.docker.compose.service="frontend" \
   --detach=true \
+  -p 80:80 \
   gcr.io/google-samples/gb-frontend:v4 apache2-foreground
-
-docker run -d \
---net course_stack \
---label co.elastic.logs/module=nginx \
---label co.elastic.logs/fileset.stdout=access \
---label co.elastic.logs/fileset.stderr=error \
---label co.elastic.metrics/module=nginx \
---label co.elastic.metrics/hosts='${data.host}:${data.port}' \
--v /root/course/nginx.conf:/etc/nginx/nginx.conf:ro \
--v /root/course/nginx-default.conf:/etc/nginx/conf.d/default.conf:ro \
---name nginx \
--p 8080:8080 nginx:1.15.4
 
