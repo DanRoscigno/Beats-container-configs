@@ -6,4 +6,4 @@ docker run -d \
   --label co.elastic.logs/module=kibana \
   --label co.elastic.metrics/module=kibana \
   --label co.elastic.metrics/hosts='${data.host}:${data.port}' \
-  docker.elastic.co/kibana/kibana:6.5.1 
+  docker.elastic.co/kibana/kibana:6.4.2 
