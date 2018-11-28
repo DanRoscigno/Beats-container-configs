@@ -8,4 +8,4 @@ docker run -d \
   --network=course_stack \
   -p 9300:9300 -p 9200:9200 \
   --health-cmd='curl -s -f http://localhost:9200/_cat/health' \
-  docker.elastic.co/elasticsearch/elasticsearch:6.4.2 
+  docker.elastic.co/elasticsearch/elasticsearch:6.5.1 

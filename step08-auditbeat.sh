@@ -2,7 +2,7 @@ docker run \
   --cap-add="AUDIT_CONTROL" \
   --cap-add="AUDIT_READ" \
   --net course_stack \
-  docker.elastic.co/beats/auditbeat:6.4.2 \
+  docker.elastic.co/beats/auditbeat:6.5.1 \
   setup -E setup.kibana.host=kibana:5601 \
   -E output.elasticsearch.hosts=["elasticsearch:9200"]
 
@@ -14,6 +14,6 @@ docker run -d \
   --cap-add="AUDIT_READ" \
   --pid=host \
   --network=course_stack \
-  docker.elastic.co/beats/auditbeat:6.4.2 -e \
+  docker.elastic.co/beats/auditbeat:6.5.1 -e \
   --strict.perms=false
 
