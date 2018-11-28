@@ -49,11 +49,26 @@ metricbeat.autodiscover:
               docker.container.image: elasticsearch
           config:
             - module: elasticsearch
+              metricsets:
+                - node
+                - node_stats
+                - index
+                - index_recovery
+                - index_summary
+                - shard
+                - ml_job
+              period: 10s
+              hosts: ["${data.host}:${data.port}"]
         - condition:
             contains:
               docker.container.image: kibana
           config:
             - module: kibana
+              metricsets: ["status", "stats"]
+              period: 10s
+              hosts: ["${data.host}:${data.port}"]
+              basepath: ""
+              enabled: true
         - condition:
             contains:
               docker.container.image: redis
