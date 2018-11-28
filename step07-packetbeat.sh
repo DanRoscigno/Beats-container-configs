@@ -8,7 +8,7 @@ setup -E setup.kibana.host=kibana:5601 \
 docker run -d \
   --name=packetbeat \
   --user=packetbeat \
-  --volume="$(pwd)/configs/packetbeat.yml:/usr/share/packetbeat/packetbeat.yml:ro" \
+  --volume="$(pwd)/single-configs/packetbeat.yml:/usr/share/packetbeat/packetbeat.yml:ro" \
   --cap-add="NET_RAW" \
   --cap-add="NET_ADMIN" \
   --network=host \

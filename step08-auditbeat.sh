@@ -9,7 +9,7 @@ docker run \
 docker run -d \
   --name=auditbeat \
   --user=root \
-  --volume="$(pwd)/configs/auditbeat.yml:/usr/share/auditbeat/auditbeat.yml:ro" \
+  --volume="$(pwd)/single-configs/auditbeat.yml:/usr/share/auditbeat/auditbeat.yml:ro" \
   --cap-add="AUDIT_CONTROL" \
   --cap-add="AUDIT_READ" \
   --pid=host \
