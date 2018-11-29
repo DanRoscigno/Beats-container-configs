@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: packetbeat-setup
+spec:
+  containers:
+  - name: packetbeat-setup
+    image: docker.elastic.co/beats/packetbeat:6.5.1
+    args:
+    - setup
+    - -E
+    - cloud.id="BeatsDocs:blahblahblah"
+    - -E
+    - cloud.auth="elastic:yadayadayada"
+    securityContext:
+      capabilities:
+        add:
+          - NET_ADMIN
+  restartPolicy: Never
