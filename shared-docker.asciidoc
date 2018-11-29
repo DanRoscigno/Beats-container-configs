@@ -44,18 +44,18 @@ endif::[]
 ==== Configure {beatname_uc} on Docker
 
 The Docker image provides several methods for configuring {beatname_uc}. The
-conventional approach is to provide a configuration file via a bind mount, but 
+conventional approach is to provide a configuration file via a volume mount, but 
 it's also possible to create a custom image with your
 configuration included.
 
 [float]
-===== Bind-mounted configuration
+===== Volume-mounted configuration
 
-One way to configure {beatname_uc} on Docker is to provide +{beatname_lc}.yml+ via a bind mount.
-With +docker run+, the bind mount can be specified like this:
+One way to configure {beatname_uc} on Docker is to provide +{beatname_lc}.yml+ via a volume mount.
+With +docker run+, the volume mount can be specified like this:
 
-["source", "sh", subs="attributes"]
 ifeval::["{beatname_lc}"=="filebeat"]
+["source", "sh", subs="attributes"]
 --------------------------------------------
 docker run -d \
 --name={beatname_lc} \
@@ -68,6 +68,7 @@ docker run -d \
 endif::[]
 
 ifeval::["{beatname_lc}"=="metricbeat"]
+["source", "sh", subs="attributes"]
 --------------------------------------------
 docker run -d \
 --name={beatname_lc} \
@@ -82,6 +83,7 @@ docker run -d \
 endif::[]
 
 ifeval::["{beatname_lc}"=="packetbeat"]
+["source", "sh", subs="attributes"]
 --------------------------------------------
 docker run -d \
   --name={beatname_lc} \
@@ -96,6 +98,7 @@ docker run -d \
 endif::[]
 
 ifeval::["{beatname_lc}"=="auditbeat"]
+["source", "sh", subs="attributes"]
 --------------------------------------------
 docker run -d \
   --name={beatname_lc} \
@@ -110,6 +113,7 @@ docker run -d \
 endif::[]
 
 ifeval::["{beatname_lc}"=="heartbeat"]
+["source", "sh", subs="attributes"]
 --------------------------------------------
 docker run -d \
   --name={beatname_lc} \
