@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: metricbeat-setup
+spec:
+  containers:
+  - name: metricbeat-setup
+    image: docker.elastic.co/beats/metricbeat:6.5.1
+    args:
+    - setup
+    - -E
+    - cloud.id="BeatsDocs:blahblahblah"
+    - -E
+    - cloud.auth="elastic:yadayadayada"
+  restartPolicy: Never
